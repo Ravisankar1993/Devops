@@ -1,0 +1,17 @@
+echo 'Maven Installation started.'
+echo '---------------------------'
+yum install wget zip unzip -y
+cd /opt
+wget http://us.mirrors.quenda.co/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip -O apache-maven-3.6.3.zip
+unzip apache-maven-3.6.3.zip
+echo "export M2_HOME=/opt/apache-maven-3.6.3" >> ~/.bash_profile
+#To set the varibales in System wide environment , use below file
+echo "export M2_HOME=/opt/apache-maven-3.6.3" >> /etc/profile
+
+echo 'export PATH=$PATH:$M2_HOME/bin' >> ~/.bash_profile
+source ~/.bash_profile
+
+echo 'Maven Installation done.'
+echo '-----------------------'
+
+mvn -version
